@@ -70,8 +70,8 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
     return final_img
 
 # Future input parameters
-pixel_size = 20   # Coarseness of pixelation
-tile_size = 20    # Size of each tile in final image
+pixel_size = 24   # Coarseness of pixelation
+tile_size = 40    # Size of each tile in final image
 
 # Run the function and store the result in a variable 
 # As of now the image can only be saved as png due to alpha channel handling
