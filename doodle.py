@@ -71,15 +71,15 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
                 layer.paste(tinted_tile, (px, py), tinted_tile)
                 final_img = Image.alpha_composite(layer, final_img)
 
-    final_img.show()
+    final_img.save("Results/doodled_image.png")
 
     return final_img, pixelated
 
 pixelate_to_colored_tiles(
     "Imgs/screaming_skull.jpg",
     "Imgs/Tile",
-    pixel_size=15,
-    tile_size=40,
+    pixel_size=20,
+    tile_size=20,
     overlap_scale=2   # tiles are 2× bigger than pixel grid
 )
 
