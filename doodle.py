@@ -3,14 +3,7 @@ import random
 import numpy as np
 from PIL import Image, ImageFilter
 
-def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size, output_path,
-                              overlap_scale):
-    """
-    Creates pixel mosaic using tiles that are LARGER than pixel grid cells so they overlap,
-    and randomly decides whether each tile is drawn above or below existing tiles.
-    """
-
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size, overlap_scale):
 
     # Load original image
     original = Image.open(original_path).convert("RGB")
@@ -78,16 +71,15 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
                 layer.paste(tinted_tile, (px, py), tinted_tile)
                 final_img = Image.alpha_composite(layer, final_img)
 
-    final_img.show(output_path)
-    print(f"Saved mosaic with overlap to {output_path}")
+    final_img.show()
 
-    return final_img
+    return final_img, pixelated
 
-doodled_img = pixelate_to_colored_tiles(
+pixelate_to_colored_tiles(
     "Imgs/screaming_skull.jpg",
     "Imgs/Tile",
     pixel_size=15,
     tile_size=40,
-    output_path="Results/doodle_overlap.png",
     overlap_scale=2   # tiles are 2× bigger than pixel grid
 )
+
