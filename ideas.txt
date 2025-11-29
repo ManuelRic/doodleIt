@@ -1,2 +1,1 @@
-since every pixel = 1 image; then make every image larger that the pixel was, so the images overlap, creating the image filled with doodles effect
-if the images overlap in a too uniform way, create a boolean that decides if it is on top or below the previous generated image
+maybe create a "were is waldo" option, one specific sprite is generated only once, and it is randomly placed somewhere in the image
