@@ -97,9 +97,9 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
 
 # Run
 pixelate_to_colored_tiles(
-    "Imgs/blues_brothers.jpg",
+    "Imgs/popeye.jpg",
     "Imgs/Tile",
-    pixel_size=50,
-    tile_size=25,
+    pixel_size=10,
+    tile_size=20,
     overlap_scale=2
 )
