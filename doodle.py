@@ -70,7 +70,8 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
 
             # Tinting
             if is_bug:
-                tinted_rgb = tile_array[:, :, :3] * np.array([1, 0, 0], dtype=float)  # red bug
+                tinted_rgb = tile_array[:, :, :3] * np.array([0.6, 0.4, 0.2], dtype=float)
+
             else:
                 tinted_rgb = tile_array[:, :, :3] * (color_array / 255)
 
@@ -90,16 +91,19 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
                 layer = Image.new("RGBA", final_img.size, (0, 0, 0, 0))
                 layer.paste(tinted_tile, (px, py), tinted_tile)
                 final_img = Image.alpha_composite(layer, final_img)
+                
 
-    final_img.save("Results/doodled_image.png")
-    final_img.show()
+    background = pixelated.resize(final_img.size)
+    background.paste(final_img, (0, 0), final_img)
+    background.save("Results/doodled_image.png")
+    background.show()
     return final_img
 
 # Run
 pixelate_to_colored_tiles(
-    "Imgs/popeye.jpg",
+    "Imgs/screaming_skull.jpg",
     "Imgs/Tile",
-    pixel_size=10,
+    pixel_size=12,
     tile_size=20,
     overlap_scale=2
 )
