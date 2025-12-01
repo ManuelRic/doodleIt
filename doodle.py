@@ -43,7 +43,7 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
     bug_y = random.randrange(ph)
 
     # Final canvas
-    final_img = Image.new("RGBA", (pw * tile_size, ph * tile_size), (0, 0, 0, 0))
+    tile_img = Image.new("RGBA", (pw * tile_size, ph * tile_size), (0, 0, 0, 0))
     num_tiles = len(tiles)
 
     for y in range(ph):
@@ -86,17 +86,18 @@ def pixelate_to_colored_tiles(original_path, tile_folder, pixel_size, tile_size,
 
             # Draw tile
             if draw_on_top:
-                final_img.paste(tinted_tile, (px, py), tinted_tile)
+                tile_img.paste(tinted_tile, (px, py), tinted_tile)
             else:
-                layer = Image.new("RGBA", final_img.size, (0, 0, 0, 0))
+                layer = Image.new("RGBA", tile_img.size, (0, 0, 0, 0))
                 layer.paste(tinted_tile, (px, py), tinted_tile)
-                final_img = Image.alpha_composite(layer, final_img)
+                tile_img = Image.alpha_composite(layer, tile_img)
                 
 
-    background = pixelated.resize(final_img.size)
-    background.paste(final_img, (0, 0), final_img)
-    background.save("Results/doodled_image.png")
-    background.show()
+    background = pixelated.resize(tile_img.size)
+    background.paste(tile_img, (0, 0), tile_img)
+    final_img = background
+    final_img.save("Results/doodled_image.png")
+    final_img.show()
     return final_img
 
 # Run

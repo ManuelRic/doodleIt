@@ -1,1 +1,2 @@
 maybe create a "were is waldo" option, one specific sprite is generated only once, and it is randomly placed somewhere in the image
+add bug walking through screen randomly (create animation + trail)
