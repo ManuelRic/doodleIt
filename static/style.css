@@ -1,0 +1,112 @@
+/* --- Fonts --- */
+@font-face {
+    font-family: 'SigmarOne';
+    src: url("Fonts/SigmarOne-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- Global Styles --- */
+body {
+    font-size: 16px;
+    font-family: 'SigmarOne', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: lighter;
+    margin: 0.3em 0;
+}
+
+/* --- Main Container --- */
+.main_container {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+/* --- Input Container --- */
+.inputs_container {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/* --- Inputs --- */
+.input_num {
+    width: fit-content;
+    max-width: 160px;
+    font-size: 1.2em;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+/* --- Buttons --- */
+button {
+    margin-top: 1em;
+    padding: 0.6em 1em;
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* --- Results Container --- */
+.results_container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* --- Processed Image --- */
+#result_img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    box-shadow: 0px 0px 20px 5px rgb(0, 0, 0);
+    margin-top: 1em;
+}
+
+/* --- Responsive Media Queries --- */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 0.9em;
+    }
+
+    .main_container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input_num,
+    button {
+        max-width: 100%;
+    }
+
+    #result_img {
+        max-width: 100%;
+    }
+}
