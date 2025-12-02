@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="inputs_container">
+        <h2>Inputs</h2>
+        <form action="/process" method="POST" enctype="multipart/form-data">
+            <h3>Image:</h3>
+            <input type="file" name="image" accept="image/*" required>
+
+            <h3>Pixel Size:</h3>
+            <input class="input_num" type="number" name="pixel_size" required>
+
+            <h3>Tile Size:</h3>
+            <input class="input_num" type="number" name="tile_size" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="results_container">
+        <h2>Doodled Image:</h2>
+        {% if result_image %}
+            <img src="{{ url_for('static', filename='Results/doodled_image.png') }}">
+            <br>
+            <a href="{{ url_for('static', filename='Results/doodled_image.png') }}" download>
+                <button>Download Image</button>
+            </a>
+        {% else %}
+            <p>No image processed yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

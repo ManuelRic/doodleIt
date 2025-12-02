@@ -30,6 +30,10 @@ h3{
     width: 25%;
 }
 
+button{
+    margin-top: 4%;
+}
+
 .results_container {
     text-align: center;
     margin: 2% auto; 
